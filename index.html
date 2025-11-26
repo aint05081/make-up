@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+  <meta charset="UTF-8" />
+  <title>Make-up HOME</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="top-bar">
+    <header class="header">
+  <div class="logo">
+    <img src="logo.png" alt="logo" />
+  </div>
+</header>
+
+    <nav class="nav">
+      <button id="themeToggle" class="btn ghost">다크 모드</button>
+      <div id="authArea" class="auth-area">
+        <!-- JS가 로그인 / 회원가입 UI를 채워 넣음 -->
+      </div>
+    </nav>
+  </header>
+
+  <main class="main">
+  <!-- ⭐ 인스타그램 스타일 상단 프로필 박스 -->
+<!-- ⭐ 인스타 스타일 + 정보 입력 가능 프로필 박스 -->
+<section class="profile-box card">
+  <div class="profile-wrap">
+    <div class="profile-photo">
+      <img src="profile.jpg" alt="profile">
+    </div>
+
+    <div class="profile-info">
+      <h2 class="profile-name" id="profileName">Your Name</h2>
+      <p class="profile-bio" id="profileBio">
+        기록을 좋아하는 사람입니다 :)
+      </p>
+
+      <div class="profile-extra">
+        <p class="profile-email" id="profileEmail">📧 email@example.com</p>
+        <p class="profile-link" id="profileLink">
+          🔗 <a href="https://example.com" target="_blank">https://example.com</a>
+        </p>
+      </div>
+
+      <!-- 관리자만 보이는 프로필 수정 영역 -->
+      <div id="profileEditArea" class="profile-edit hidden">
+        <input type="text" id="editName" placeholder="이름 입력">
+        <input type="text" id="editBio" placeholder="짧은 소개">
+        <input type="email" id="editEmail" placeholder="이메일 주소">
+        <input type="url" id="editLink" placeholder="외부 링크 (https://...)">
+
+        <button class="btn primary" id="saveProfileBtn">프로필 저장</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+  <section class="gallery-section">
+  <div class="section-header">
+    <div class="gallery-title-img">
+      <img src="gallery-title.png" alt="gallery title">
+    </div>
+
+    <!-- 태그 필터를 제목 바로 밑으로 올림 -->
+    <div id="tagFilter" class="tag-filter"></div>
+  </div>
+
+  <!-- 실제 카드들이 들어갈 그리드 -->
+  <div id="galleryGrid" class="gallery-grid">
+    <!-- JS가 카드 렌더링 -->
+  </div>
+</section>
+
+
+    <!-- 관리자(로그인 후) 섹션 -->
+    <section id="adminSection" class="admin-section hidden">
+      <div class="section-header">
+        <h2>사진 관리</h2>
+        <p class="section-desc">새 사진을 추가하거나 기존 사진을 수정하세요.</p>
+      </div>
+
+      <form id="photoForm" class="card form-card">
+        <input type="hidden" id="photoId" />
+        <div class="field">
+          <label for="imageInput">사진 파일</label>
+          <input type="file" id="imageInput" accept="image/*" />
+          <small>로컬 이미지를 선택하면 자동으로 저장됩니다. (브라우저 localStorage에 저장)</small>
+        </div>
+  
+        <div class="field">
+          <label for="tagsInput">태그</label>
+          <input
+            type="text"
+            id="tagsInput"
+            placeholder="예: 여행, 일상 (쉼표로 구분)"
+          />
+        </div>
+        <div class="field">
+          <label for="linkInput">링크</label>
+          <input
+            type="url"
+            id="linkInput"
+            placeholder="https:// 로 시작하는 링크"
+            required
+          />
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn primary" id="saveBtn">저장</button>
+          <button type="button" class="btn ghost" id="resetBtn">새로 작성</button>
+        </div>
+      </form>
+
+      <div id="photoList" class="photo-list">
+        <!-- JS가 리스트 렌더링 -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© <span id="year"></span> My Gallery</span>
+  </footer>
+
+    <!-- Firebase SDK (compat 버전) -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+
+  <script>
+    const firebaseConfig = {
+  apiKey: "AIzaSyB8tYsi9yaALPeYZdO-QmLEmVZnCL2sNmc",
+  authDomain: "make-up-gallery.firebaseapp.com",
+  projectId: "make-up-gallery",
+  storageBucket: "make-up-gallery.firebasestorage.app",
+  messagingSenderId: "235768420312",
+  appId: "1:235768420312:web:0ca40bb091562f17ed44ad"
+};
+
+    firebase.initializeApp(firebaseConfig);
+
+    // 전역에서 쓸 핸들
+    const db = firebase.firestore();
+    const storage = firebase.storage();
+    const auth = firebase.auth();
+  </script>
+
+  <script src="app.js"></script>
+</body>
+</html>
