@@ -502,14 +502,22 @@ body.dark .intro-section {
   padding-left: 1.5rem;   /* ⭐ 사진을 전체적으로 중앙 쪽으로 이동 */
 }
 
-
+/* 프로필 사진: 동그란 프레임 안에 꽉 차게 */
 .profile-photo {
-  width: 160px;
-  height: 160px;
+  width: 110px;
+  height: 110px;
   border-radius: 50%;
   overflow: hidden;
-  border: 3px solid var(--accent);
-  flex-shrink: 0;           /* 크기 유지 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* 비율 유지한 채로 프레임 채우기 */
+  display: block;
 }
 
 .profile-photo img {
