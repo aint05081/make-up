@@ -489,3 +489,153 @@ document.addEventListener("DOMContentLoaded", async () => {
   renderTagFilter();
   renderPhotoList();
 });
+/* ============================
+   모바일 최적화
+   (가로 폭 768px 이하)
+============================ */
+@media (max-width: 768px) {
+  /* 전체 패딩 살짝 줄이기 */
+  .main {
+    padding: 0.75rem;
+  }
+
+  /* 상단바: 로고/버튼 간격 정리 */
+  .top-bar,
+  .header {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .nav {
+    gap: 0.5rem;
+  }
+
+  .auth-area input {
+    width: 90px;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.4rem;
+  }
+
+  .auth-area .btn.small,
+  .auth-area .btn.small.ghost {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  /* 프로필 박스: 세로 배치로 변경 */
+  .profile-box {
+    padding: 0.75rem;
+  }
+
+  .profile-wrap {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.6rem;
+  }
+
+  .profile-photo img {
+    width: 88px;
+    height: 88px;
+  }
+
+  .profile-info {
+    width: 100%;
+    align-items: center;
+  }
+
+  .profile-name {
+    font-size: 1.1rem;
+  }
+
+  .profile-bio {
+    font-size: 0.85rem;
+  }
+
+  .profile-extra {
+    font-size: 0.8rem;
+  }
+
+  .profile-extra a {
+    word-break: break-all;
+  }
+
+  /* 프로필 수정 폼도 한 줄에 하나씩 꽉 차게 */
+  .profile-edit {
+    width: 100%;
+    gap: 0.35rem;
+  }
+
+  .profile-edit input {
+    width: 100%;
+    font-size: 0.8rem;
+    padding: 0.35rem 0.6rem;
+  }
+
+  /* 갤러리: 1~2열로 자동 반응하도록 */
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+
+  /* 아주 작은 화면(아이폰 SE 수준)에서는 1열 */
+  @media (max-width: 480px) {
+    .gallery-grid {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+  }
+
+  .gallery-card {
+    padding: 0.4rem;
+  }
+
+  .gallery-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* 태그 조금 더 읽기 좋게 */
+  .tag-list {
+    gap: 0.25rem;
+  }
+
+  .tag-pill {
+    font-size: 0.8rem;
+    padding: 3px 8px;
+  }
+
+  /* 태그 필터 버튼들 줄바꿈 허용 */
+  .tag-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+
+  .tag-filter button {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+  }
+
+  /* 관리자 섹션 카드들도 여백 줄이기 */
+  .admin-section .card,
+  .form-card {
+    padding: 0.75rem;
+  }
+
+  .photo-row {
+    gap: 0.5rem;
+  }
+
+  .photo-meta-title {
+    font-size: 0.8rem;
+  }
+
+  .photo-meta-tags {
+    font-size: 0.75rem;
+  }
+
+  .photo-actions .btn.small {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+  }
+}
