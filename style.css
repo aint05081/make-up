@@ -650,9 +650,11 @@ body.dark .intro-section {
   }
 
   .profile-photo img {
-    width: 88px;
-    height: 88px;
-  }
+  width: 100%;
+  height: 100%;
+  object-fit: cover;             /* 사진이 원에 가득 차게 */
+  display: block;
+}
 
   .profile-info {
     width: 100%;
