@@ -503,11 +503,15 @@ body.dark .intro-section {
 }
 
 /* 프로필 사진: 동그란 프레임 안에 꽉 차게 */
+/* 프로필 사진: 동그란 핑크 테두리 + 안에 이미지 꽉 채우기 */
 .profile-photo {
   width: 110px;
   height: 110px;
-  border-radius: 50%;
-  overflow: hidden;
+  border-radius: 50%;                  /* 동그라미 모양 */
+  border: 3px solid #f9a8d4;           /* ⭐ 원 테두리 색 (연핑크) */
+  padding: 3px;                        /* 테두리 안쪽 여백 (테두리 두께처럼 보이게) */
+  background: #fff;                    /* 안쪽 배경 흰색 */
+  overflow: hidden;                    /* 이미지가 원 밖으로 안 튀어나오게 */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -516,14 +520,8 @@ body.dark .intro-section {
 .profile-photo img {
   width: 100%;
   height: 100%;
-  object-fit: cover;   /* 비율 유지한 채로 프레임 채우기 */
+  object-fit: cover;                   /* 비율 유지하면서 꽉 채우기 */
   display: block;
-}
-
-.profile-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .profile-info {
