@@ -748,3 +748,26 @@ body.dark .intro-section {
     padding: 0.25rem 0.5rem;
   }
 }
+/* ============================
+   피드 무제한 스크롤 보이게 강제
+============================ */
+html, body {
+  height: auto !important;
+  overflow: visible !important;
+}
+
+.main,
+.gallery-section,
+.gallery-grid {
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+/* 갤러리 그리드: 카드 개수 제한 없이 계속 아래로 쌓이게 */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-auto-rows: auto;
+  gap: 0.8rem;
+}
