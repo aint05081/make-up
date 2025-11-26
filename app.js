@@ -389,10 +389,10 @@ function fillFormForEdit(id) {
 // ============================
 function loadProfile() {
   const data = JSON.parse(localStorage.getItem(PROFILE_KEY)) || {
-    name: "Your Name",
-    bio: "기록을 좋아하는 사람입니다 :)",
-    email: "email@example.com",
-    link: "https://example.com",
+    name: "까꿍",
+    bio: "화장품 모아보기 ξ ๑ ･ ﻌ ･๑Ҙ",
+    email: "nxxwrnxvxr@gmail.com",
+    link: "https://x.com/NxwxrNxvxr",
   };
 
   const nameEl = document.getElementById("profileName");
